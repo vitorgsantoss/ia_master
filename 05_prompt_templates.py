@@ -8,7 +8,7 @@ template = '''
 Traduza o texto de {idioma1} para {idioma2}: {texto}
 '''
 
-prompt_template = PromptTemplate(template=template)
+prompt_template = PromptTemplate.from_template(template=template)
 
 prompt = prompt_template.format(
     idioma1 = 'inglês', 
