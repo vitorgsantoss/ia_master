@@ -5,16 +5,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-model = ChatOpenAI(model='gpt-3.5-turbo')
+model = ChatOpenAI(model = 'gpt-3.5-turbo')
 
-runnable_sequency = (
+runnable_chain = (
     PromptTemplate.from_template(
-        'Me diga que são os principais Anti-heróis do universo {universe}'
+        'Me informe quem foi {historical_character}'
     )
     | model
     | StrOutputParser()
 )
 
-response = runnable_sequency.invoke({'universe': 'Marvel'})
-
+response = runnable_chain.invoke({'historical_character': 'Albert Einstein'})
 print(response)
