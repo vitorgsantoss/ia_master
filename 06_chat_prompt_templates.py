@@ -13,21 +13,18 @@ chat_prompt = ChatPromptTemplate.from_messages(
 
 model = ChatOpenAI(model = 'gpt-3.5-turbo')
 
-print('Informe a área de especialização: ')
 prompt = chat_prompt.format_messages(
-    specialization = input()
+    specialization = input('Informe a área de especialização: ')
 )
 
 while True:
-    print('Digite abaixo o que deseja falar ao GPT: ')
     prompt.append(
-        HumanMessage(input())
+        HumanMessage(input('Digite abaixo o que deseja falar ao GPT: '))
     )
-
-    print(prompt)
     response = model.invoke(prompt)
     print(response.content)
 
     prompt.append(
         AIMessage(response.content)
     )
+    print(prompt)
