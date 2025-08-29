@@ -1,0 +1,1 @@
+# Repositório criado com o intuito de estudar a criação de agentes de IA
